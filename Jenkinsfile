@@ -5,9 +5,14 @@ pipeline {
 	
 	    stage( "Compile" ) {
 	        steps {
-	            sh "mvn clean package"
+	            bat "mvn clean package"
 	        }
 	    }
-	    
+	    	    
+	    stage( "Docker build" ) {
+	        steps {
+	            bat "docker build -t babyfrost/demo:latest ."
+	        }
+	    }
 	}
 }
