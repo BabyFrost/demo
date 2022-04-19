@@ -19,6 +19,21 @@ pipeline {
 	        steps {
 	            bat "docker tag babyfrost/demo localhost:5000/babyfrost/demo"
 	        }
+	        
+	        steps {
+	            bat "docker push localhost:5000/babyfrost/demo"
+	        }
 	    }
+	    
+	    stage( "Kubernetes Deployment" ) {
+	        steps {
+	            bat "kubectl delete deployment demo-deployment"
+	        }
+	        
+	        steps {
+	            bat "kubectl kubectl apply -f demo-deployment.yaml"
+	        }
+	    }
+	    
 	}
 }
