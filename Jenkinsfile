@@ -27,12 +27,6 @@ pipeline {
 	        }
 	    }
 	    
-	    stage( "Kubernetes Delete deployment" ) {
-	        steps {
-	            bat "kubectl delete deployment demo-deployment"
-	        }
-	    }
-	    
 	    stage( "Kubernetes Deployment" ) {
 	        steps {
 	            bat "kubectl kubectl apply -f demo-deployment.yaml"
