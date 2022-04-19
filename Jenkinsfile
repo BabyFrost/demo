@@ -29,7 +29,7 @@ pipeline {
 	    
 	    stage( "Kubernetes Deployment" ) {
 	        steps {
-	            bat "kubectl kubectl apply -f demo-deployment.yaml"
+	            bat "kubectl apply -f demo-deployment.yaml"
 	        }
 	    }
 	    
