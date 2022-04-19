@@ -12,6 +12,7 @@ public class Controller {
 	@GetMapping()
 	@ResponseBody
 	public String test() {
+		System.out.println( " Queried " );
 		return "Hello World !!!";
 	}
 
