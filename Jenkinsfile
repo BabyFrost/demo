@@ -22,9 +22,11 @@ pipeline {
 	    }
 	    
 	    stage( "Apply Kubernetes files " ) {
-	    	withKubeConfig([ serverUrl: 'http://127.0.0.1:56227'] ) {
-      			bat "kubectl apply -f demo-deployment.yaml"
-    		}
+	    	steps {
+	            withKubeConfig([ serverUrl: 'http://127.0.0.1:56227'] ) {
+      				bat "kubectl apply -f demo-deployment.yaml"
+    			}
+	        }
 	    }
 	    
 	}
