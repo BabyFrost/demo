@@ -17,7 +17,7 @@ pipeline {
 	    
 	    stage( "Docker remove Old Image" ) {
 	        steps {
-	            bat "docker push rmi localhost:5000/voufi/demo"
+	            bat "docker rmi localhost:5000/voufi/demo"
 	        }
 	    }
 	    
