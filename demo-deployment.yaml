@@ -18,6 +18,7 @@ spec:
       containers:
       - name: demo
         image: 192.168.65.2:5000/babyfrost/demo
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8087
 ---
