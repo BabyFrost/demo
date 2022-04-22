@@ -31,7 +31,7 @@ pipeline {
 	    
 	    stage( "Expose Kubernete Services " ) {
 	    	steps {
-      			bat "minikube tunnel"
+      			bat "C:/Users/BabyFrost/Desktop/tunnel.bat"
 	        }
 	    }
 	    
