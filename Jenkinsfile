@@ -23,7 +23,7 @@ pipeline {
 	    
 	    stage( "Apply Kubernetes files " ) {
 	    	steps {
-	            withKubeConfig([ credentialsId: '', serverUrl: 'http://127.0.0.1:56227'] ) {
+	            withKubeConfig([ credentialsId: 'jenkins-docker', serverUrl: 'http://127.0.0.1:56227'] ) {
       				bat "kubectl apply -f demo-deployment.yaml"
     			}
 	        }
