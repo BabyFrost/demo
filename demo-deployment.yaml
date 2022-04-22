@@ -14,7 +14,6 @@ spec:
       labels:
         app: demo
     spec:
-      terminationGracePeriodSeconds: 30
       containers:
       - name: demo
         image: 192.168.65.2:5000/voufi/demo

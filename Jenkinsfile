@@ -11,13 +11,13 @@ pipeline {
 	    	    
 	    stage( "Docker Build" ) {
 	        steps {
-	        	bat "docker build -t localhost:5000/voufi/demo:latest ."
+	        	bat "docker build -t localhost:5000/voufi/demo:${BUILD_TIMESTAMP} ."
 	        }
 	    }
 	    
 	    stage( "Docker Push" ) {
 	        steps {
-	            bat "docker push localhost:5000/voufi/demo"
+	            bat "docker push localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
 	        }
 	    }
 	    
