@@ -29,11 +29,5 @@ pipeline {
 	        }
 	    }
 	    
-	    stage( "Expose Kubernete Services " ) {
-	    	steps {
-      			bat "minikube start"
-	        }
-	    }
-	    
 	}
 }
