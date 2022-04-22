@@ -23,7 +23,7 @@ pipeline {
 	    
 	    stage( "Apply Kubernetes files " ) {
 	    	steps {
-	            withKubeConfig([ credentialsId: 'jenkins-robot', serverUrl: 'http://127.0.0.1:61986'] ) {
+	            withKubeConfig([ credentialsId: 'jenkins-robot', serverUrl: 'http://127.0.0.1:55013'] ) {
 //	            	bat "kubectl delete deployment demo-deployment"
       				bat "kubectl apply -f demo-deployment.yaml"
     			}
