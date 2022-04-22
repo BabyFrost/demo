@@ -17,6 +17,9 @@ pipeline {
 	    
 	    stage( "Docker Push" ) {
 	        steps {
+	        	try {
+	        	    bat "docker rmi localhost:5000/voufi/demo"
+	        	} catch (Exception e) { }
 	            bat "docker push -f localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
 	        }
 	    }
