@@ -17,7 +17,7 @@ pipeline {
 	    
 	    stage( "Docker Push" ) {
 	        steps {
-	            bat "docker push localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
+	            bat "docker push -f localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
 	        }
 	    }
 	    
