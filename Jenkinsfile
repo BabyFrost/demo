@@ -15,12 +15,15 @@ pipeline {
 	        }
 	    }
 	    
+	    stage( "Docker remove Old Image" ) {
+	        steps {
+	            bat "docker push rmi localhost:5000/voufi/demo"
+	        }
+	    }
+	    
 	    stage( "Docker Push" ) {
 	        steps {
-	        	try {
-	        	    bat "docker rmi localhost:5000/voufi/demo"
-	        	} catch (Exception e) { }
-	            bat "docker push -f localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
+	            bat "docker push localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
 	        }
 	    }
 	    
