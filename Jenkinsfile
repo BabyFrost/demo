@@ -34,7 +34,7 @@ pipeline {
 //      						bat "kubectl set image deployment/demo-deployment demo=192.168.65.2:5000/voufi/demo:${BUILD_TIMESTAMP} --record"
   						} catch (Exception e) {
   							bat "kubectl create deployment demo-deployment --image=127.0.0.1:5000/voufi/demo:${BUILD_NUMBER} --replicas=1"
-  							bat "kubectl expose deployment demo-deployment --type=LoadBalancer --name=demo-service"
+  							bat "kubectl expose deployment demo-deployment --type=LoadBalancer --name=demo-service --port=8087"
 //      						bat "kubectl apply -f demo-deployment.yaml"
   						}
 					}

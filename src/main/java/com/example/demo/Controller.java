@@ -13,7 +13,7 @@ public class Controller {
 	@ResponseBody
 	public String test() {
 		System.out.println( " Queried " );
-		return "Hello World !!! V:0.1.0";
+		return "Hello World !!! V:0.1.1";
 	}
 
 }
