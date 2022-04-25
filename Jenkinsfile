@@ -26,7 +26,7 @@ pipeline {
 	    stage( "Apply Kubernetes files " ) {
 	    	steps {
 	            withKubeConfig([ credentialsId: 'jenkins-robot', serverUrl: 'http://127.0.0.1:57710'] ) {
-	            	bat "kubectl set image deployment/demo-deployment demo=localhost:5000/voufi/demo:latest --record"
+	            	bat "kubectl set image deployment/demo-deployment demo=192.168.65.2:5000/voufi/demo:latest --record"
  //     				bat "kubectl apply -f demo-deployment.yaml"
     			}
 	        }
