@@ -17,7 +17,7 @@ public class Controller {
 		return "Hello World !!! V:0.1.1";
 	}
 	
-	@Value( "${service.source_service_url}" )
+	@Value( "${SOURCE_SERVICE_URL}" )
 	private String sourceService;
 	
 	@GetMapping("/date")
