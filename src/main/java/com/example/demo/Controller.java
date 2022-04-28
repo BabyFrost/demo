@@ -24,7 +24,7 @@ public class Controller {
 	
 	@GetMapping("/date")
 	public String getByDate(String nomAxe, String nomMatiere ) {
-		String dateUrl = sourceService +"/date";
+		String dateUrl = "http://"+sourceService +"/date";
 		String response = " Demo demande la date "+ rest.getForObject( dateUrl, String.class);
 		return response;
 	}
