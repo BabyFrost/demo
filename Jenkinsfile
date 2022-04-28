@@ -12,35 +12,27 @@ pipeline {
 	    stage( "Docker Build" ) {
 	        steps {
 	        bat "docker build -t localhost:5000/voufi/demo:${BUILD_NUMBER} ."
-//	        	bat "docker build -t localhost:5000/voufi/demo:${BUILD_TIMESTAMP} ."
-//	        	bat "docker build -t localhost:5000/voufi/demo:latest ."
 	        }
 	    }
 	    
 	    stage( "Docker Push" ) {
 	        steps {
 	      		bat "docker push localhost:5000/voufi/demo:${BUILD_NUMBER}"
-//	            bat "docker push localhost:5000/voufi/demo:${BUILD_TIMESTAMP}"
-//	            bat "docker push localhost:5000/voufi/demo:latest"
 	        }
 	    }
 	    
-	    stage( "Apply Kubernetes files " ) {
+	    stage( "Kubernetes Deployment" ) {
 	    	steps {
 	            withKubeConfig([ credentialsId: 'jenkins-robot', serverUrl: 'http://127.0.0.1:8001'] ) {
 	            	script {
   						try {
-  							bat "kubectl set image deployment/demo-deployment demo=127.0.0.1:5000/voufi/demo:${BUILD_NUMBER} --record"
-//      						bat "kubectl set image deployment/demo-deployment demo=192.168.65.2:5000/voufi/demo:${BUILD_TIMESTAMP} --record"
+ //							bat "kubectl set image deployment/demo-deployment demo=127.0.0.1:5000/voufi/demo:${BUILD_NUMBER} --record"
+  							bat "kubectl apply -f config.yaml"
   						} catch (Exception e) {
   							bat "kubectl create deployment demo-deployment --image=127.0.0.1:5000/voufi/demo:${BUILD_NUMBER} --replicas=1"
-  							bat "kubectl expose deployment demo-deployment --type=LoadBalancer --name=demo-service --port=8087"
-//      						bat "kubectl apply -f demo-deployment.yaml"
+  							bat "kubectl apply -f config.yaml"
   						}
 					}
-	            
-//	            	bat "kubectl set image deployment/demo-deployment demo=192.168.65.2:5000/voufi/demo:${BUILD_TIMESTAMP} --record"
-//     				bat "kubectl apply -f demo-deployment.yaml"
     			}
 	        }
 	    }
