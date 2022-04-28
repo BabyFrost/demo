@@ -10,15 +10,17 @@ import org.springframework.web.client.RestTemplate;
 public class Controller {
 	RestTemplate rest = new RestTemplate();
 	
+	@Value( "${SOURCE_SERVICE_URL}" )
+	private String sourceService;
+	
 	@GetMapping()
 	@ResponseBody
 	public String test() {
 		System.out.println( " Queried " );
-		return "Hello World !!! V:0.1.1";
+		return "Hello World !!! V:0.1.1    SourceURL = "+sourceService;
 	}
 	
-	@Value( "${SOURCE_SERVICE_URL}" )
-	private String sourceService;
+	
 	
 	@GetMapping("/date")
 	public String getByDate(String nomAxe, String nomMatiere ) {
