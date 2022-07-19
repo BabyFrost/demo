@@ -3,9 +3,9 @@ pipeline {
 	
 	stages {
 	
-		stage('SonarQube Analysis') {
+		stage("SonarQube Analysis") {
 			steps {
-	            bat "mvn clean verify sonar:sonar -Dsonar.projectKey=demo"bat "mvn clean package"
+	            bat "mvn clean verify sonar:sonar -Dsonar.projectKey=demo"
 	        }	
   		}
 	
