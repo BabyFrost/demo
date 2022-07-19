@@ -17,7 +17,7 @@ public class Controller {
 	@ResponseBody
 	public String test() {
 		System.out.println( " Queried " );
-		return "Hello World !!! V:10    SourceURL = "+sourceService;
+		return "Bienvenue aux soutenances de Voufack Jazet Harol !!! V:10    SourceURL = "+sourceService;
 	}
 	
 	
@@ -25,7 +25,8 @@ public class Controller {
 	@GetMapping("/date")
 	public String getByDate(String nomAxe, String nomMatiere ) {
 		String dateUrl = "http://"+sourceService +"/date";
-		String response = " Demo demande la date "+ rest.getForObject( dateUrl, String.class);
+		String response = rest.getForObject( dateUrl, String.class);
+//		String response = " Demo demande la date "+ rest.getForObject( dateUrl, String.class);
 		return response;
 	}
 
