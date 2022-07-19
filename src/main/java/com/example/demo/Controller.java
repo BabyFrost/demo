@@ -27,7 +27,7 @@ public class Controller {
 	public String getByDate(String nomAxe, String nomMatiere ) {
 		String dateUrl = "http://"+sourceService +"/date";
 //		String response = rest.getForObject( dateUrl, String.class);
-		String response = " Donne moi la date du jour s'il te plait "+ rest.getForObject( dateUrl, String.class);
+		String response = " Donne moi la date du jour s'il te plait : "+ rest.getForObject( dateUrl, String.class);
 		return response;
 	}
 
