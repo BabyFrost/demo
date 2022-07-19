@@ -17,7 +17,8 @@ public class Controller {
 	@ResponseBody
 	public String test() {
 		System.out.println( " Queried " );
-		return "Bienvenue aux soutenances de Voufack Jazet Harol !!! V:10    SourceURL = "+sourceService;
+		return "Bienvenue a la soutenances de l'étudiant Voufack Jazet Roger";
+//		return "Bienvenue aux soutenances de Voufack Jazet Harol !!! V:10    SourceURL = "+sourceService;
 	}
 	
 	
