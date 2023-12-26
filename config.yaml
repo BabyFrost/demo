@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo
-        image: localhost:5000/voufi/demo:103
+        image: localhost:5000/voufi/demo:6
         ports:
         - containerPort: 8087
         env:
